@@ -51,14 +51,14 @@ namespace Discord_Bot_Functionalities
         // Downloads youtube video and adds it to the queue
         public async Task Download(string Url, CommandEventArgs e)
         {
-            YouTube _TubeClient = YouTube.Default;
-            YouTubeVideo Video = _TubeClient.GetVideo(Url);
+            YouTube _tubeClient = YouTube.Default;
+            YouTubeVideo Video = _tubeClient.GetVideo(Url);
 
-            string Title = Video.Title;
-            string FullName = Video.FullName;
+            string title = Video.Title;
+            string fullName = Video.FullName;
             byte[] bytes = Video.GetBytes();
 
-            await AddItem(FullName.Replace(' ', '_'), bytes, e, Title);
+            await AddItem(fullName.Replace(' ', '_'), bytes, e, title);
         }
 
         // Streaming service for youtube audio stream
